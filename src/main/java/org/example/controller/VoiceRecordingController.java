@@ -74,4 +74,10 @@ public class VoiceRecordingController {
         List<VoiceRecording> recordings = (List<VoiceRecording>) voiceRecordingService.getRecordingsByBusinessPartner(businessPartner);
         return ResponseEntity.ok(recordings);
     }
+
+    @PostMapping("/init-sample-data")
+    public ResponseEntity<Void> initSampleData() {
+        voiceRecordingService.initSampleDataIfEmpty();
+        return ResponseEntity.ok().build();
+    }
 }
